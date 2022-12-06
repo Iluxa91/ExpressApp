@@ -4,8 +4,15 @@ import express, {Request, Response} from 'express'
 const app = express()
 const port = process.env.PORT || 3000
 
-app.get('/', (req:Request, res: Response)=>{
-    res.send('Hello Ilua!!')
+const products = [{title: "tomatoes"}, {title: "orange"}]
+const adresses = [{value: "Nezalezhnasti 12"}, {value: "Pobedi 3"}]
+
+app.get('/products', (req:Request, res: Response)=>{
+    res.send(products)
+})
+
+app.get('/adresses',(req:Request, res: Response)=>{
+    res.send(adresses)
 })
 
 app.listen(port, () => {
