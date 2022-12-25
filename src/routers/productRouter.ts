@@ -2,7 +2,6 @@ import { Request, Response, Router } from "express";
 
 const products = [{id: 1, title: "tomatoes"}, {id: 2, title: "orange"}]
 
-
 export const productsRouter = Router({})
 
 productsRouter.get("/products", (req: Request, res: Response) => {
@@ -20,7 +19,6 @@ productsRouter.post("/", (req: Request, res: Response) => {
     }
     products.push(newProduct)
     res.status(201).send(newProduct)
-
 })
 productsRouter.get("/:id", (req: Request, res: Response) => {
     const product = products.find(p => p.id === +req.params.id)

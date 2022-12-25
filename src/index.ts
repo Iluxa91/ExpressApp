@@ -7,7 +7,6 @@ import { adressesRouter } from "./routers/adressesRouter"
 const app = express()
 const port = process.env.PORT || 3000
 
-
 const parserMiddleware = bodyParser({})
 app.use(parserMiddleware)
 
