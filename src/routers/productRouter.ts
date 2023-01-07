@@ -12,6 +12,7 @@ productsRouter.get("/products", (req: Request, res: Response) => {
         res.send(products)
     }
 })
+
 productsRouter.post("/", (req: Request, res: Response) => {
     const newProduct = {
         id: +(new Date()),
@@ -20,6 +21,7 @@ productsRouter.post("/", (req: Request, res: Response) => {
     products.push(newProduct)
     res.status(201).send(newProduct)
 })
+
 productsRouter.get("/:id", (req: Request, res: Response) => {
     const product = products.find(p => p.id === +req.params.id)
     if (product) {
@@ -28,6 +30,7 @@ productsRouter.get("/:id", (req: Request, res: Response) => {
         res.send(404)
     }
 })
+
 productsRouter.put("/:id", (req: Request, res: Response) => {
     const product = products.find(p => p.id === +req.params.id)
     if (product) {
@@ -37,6 +40,7 @@ productsRouter.put("/:id", (req: Request, res: Response) => {
         res.send(404)
     }
 })
+
 productsRouter.delete("/:id", (req: Request, res: Response) => {
     for (let i = 0; i < products.length; i++) {
         if (products[i].id === +req.params.id) {
@@ -46,6 +50,7 @@ productsRouter.delete("/:id", (req: Request, res: Response) => {
     }
     res.send(404)
 })
+
 productsRouter.get("/:productTitle", (req: Request, res: Response) => {
     const product = products.find(p => p.title === req.params.productTitle)
     if (product) {
