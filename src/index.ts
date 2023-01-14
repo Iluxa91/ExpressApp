@@ -1,7 +1,7 @@
 import express, {Request, Response} from "express"
 
 import bodyParser from "body-parser"
-import { productsRouter } from "./routers/productRouter"
+import { productsRouter } from "./routers/productsRouter"
 import { adressesRouter } from "./routers/adressesRouter"
 
 const app = express()
