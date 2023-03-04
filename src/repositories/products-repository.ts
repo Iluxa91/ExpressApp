@@ -8,15 +8,12 @@ export const productsRepository = {
             return products
         }
     },
-
     getProductByTitle(title: string) {
         return products.find(p => p.title === title)
     },
-
     getProductById(id: number) {
         return products.find(p => p.id === id)
     },
-
     createProduct(title: string) {
         const newProduct = {
             id: +(new Date()),
@@ -25,7 +22,6 @@ export const productsRepository = {
         products.push(newProduct)
         return newProduct
     },
-
     updateProduct(id: number, title: string) {
         const product = products.find(p => p.id === id)
         if (product) {
@@ -35,7 +31,6 @@ export const productsRepository = {
             return false
         }
     },
-
     deleteProduct(id: number) {
         for (let i = 0; i < products.length; i++) {
             if (products[i].id === id) {
