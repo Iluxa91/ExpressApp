@@ -1,5 +1,5 @@
 {
-  "name": "ExpressApp",
+  "name": "express-app",
   "version": "1.0.0",
   "main": "src/index.ts",
   "license": "MIT",
@@ -10,7 +10,8 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
