@@ -1,5 +1,5 @@
 import {Request, Response, Router} from "express";
-import {productsRepository, ProductType} from "../repositories/products-repository";
+import {productsRepository, ProductType} from "../repositories/products-db-repository";
 import {body} from "express-validator";
 import {inputValidationMiddleware} from "../middleware/input-validation-middleware";
 
@@ -7,7 +7,7 @@ export const productsRouter = Router({})
 
 const titleValidation = body('title').trim().isLength({
     min: 3,
-    max: 10
+    max: 15
 }).withMessage('Title length should be from 3 till 10 symbols')
 
 
@@ -48,7 +48,7 @@ productsRouter.put("/:id",
     async (req: Request, res: Response) => {
         const isUpdated = await productsRepository.updateProduct(+req.params.id, req.body.title)
         if (isUpdated) {
-            const product = productsRepository.getProductById(+req.params.id)
+            const product = await productsRepository.getProductById(+req.params.id)
             res.send(product)
         } else {
             res.send(404)

@@ -14,12 +14,14 @@ export const productsRepository = {
         }
     },
 
-    async getProductByTitle(title: string) {
-        return products.find(p => p.title === title)
+    async getProductByTitle(title: string): Promise<ProductType | null> {
+        const product = products.find(p => p.title === title);
+        return product? product : null
     },
 
-    async getProductById(id: number) {
-        return products.find(p => p.id === id)
+    async getProductById(id: number): Promise<ProductType | null> {
+        const product = products.find(p => p.id === id)
+        return product? product : null
     },
 
     async createProduct(title: string): Promise<ProductType> {
@@ -41,7 +43,7 @@ export const productsRepository = {
         }
     },
 
-    async deleteProduct(id: number) {
+    async deleteProduct(id: number): Promise<boolean> {
         for (let i = 0; i < products.length; i++) {
             if (products[i].id === id) {
                 products.splice(i, 1)

@@ -1,6 +1,7 @@
 import express, {NextFunction, Request, Response} from "express"
 
 import bodyParser from "body-parser"
+import {runDb} from "./repositories/db"
 import {productsRouter} from "./routers/productsRouter"
 import {adressesRouter} from "./routers/adressesRouter"
 
@@ -22,6 +23,11 @@ app.use('/products', productsRouter)
 app.use('/adresses', adressesRouter)
 
 // start app
-app.listen(port, () => {
-    console.log(`Example listening on port ${port}`)
-})
+const startApp = async () => {
+    await runDb();
+    app.listen(port, () => {
+        console.log(`Example listening on port ${port}`)
+    })
+}
+
+startApp()
