@@ -1,7 +1,6 @@
 import {ProductType} from "../repositories/db";
 import {productsRepository} from "../repositories/products-db-repository";
 
-
 export const productsService = {
     async findProducts(title: string | null | undefined): Promise<ProductType[]> {
         return productsRepository.findProducts(title);

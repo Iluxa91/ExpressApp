@@ -5,6 +5,11 @@ export type ProductType = {
     title: string
 }
 
+export type AddressType = {
+    id: number
+    street: string
+}
+
 const mongoUri = process.env.mongoURI || "mongodb://0.0.0.0:27017";
 
 const client = new MongoClient(mongoUri)
@@ -12,6 +17,7 @@ const client = new MongoClient(mongoUri)
 const db = client.db("shop")
 
 export const productsCollection = db.collection<ProductType>("products")
+export const addressesCollection = db.collection<AddressType>("adresses")
 
 export async function runDb() {
     try {
